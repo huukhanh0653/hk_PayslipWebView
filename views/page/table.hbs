@@ -1,0 +1,131 @@
+
+<div class="limiter row">
+  <div class="title">Bảng lương - {{reformat Payslip.createAt}}</div>
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">Chi Tiết/ Detail</th>
+              <th class="column2">Thông tin/ Information</th>
+              <th class="column3">Diễn giải/ Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="column1">Mã nhân viên/Emp. Code</td>
+              <td class="column2">{{avoidEmpty Payslip.Emp_Code}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Họ và tên/Full name</td>
+              <td class="column2">{{avoidEmpty Payslip.Full_Name}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Lương cơ bản/Basic Salary</td>
+              <td class="column2">{{avoidEmpty Payslip.Basic_Salary}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Lương theo ngày công của tháng cần
+                trả/Pay(Working)</td>
+              <td class="column2">{{avoidEmpty Payslip.Bonus}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Phụ cấp/Allowance</td>
+              <td class="column2">{{avoidEmpty Payslip.Allowance}}</td>
+              <td class="column3"></td>
+            </tr>
+            <tr>
+              <td class="column1">Lương làm thêm giờ/Overtime</td>
+              <td class="column2">{{avoidEmpty Payslip.Overtime}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Tiền thưởng doanh số (nếu có)/Incentive (If
+                any)</td>
+              <td class="column2">{{avoidEmpty Payslip.Incentive.Value}}</td>
+              <td class="column3">{{avoidEmpty
+                  Payslip.Incentive.Description
+                }}</td>
+            </tr>
+            <tr>
+              <td class="column1">Tiền thưởng/Lương tháng 13 Bonus/13th Month
+                Salary</td>
+              <td class="column2">{{avoidEmpty Payslip.Bonus.Value}}</td>
+              <td class="column3">{{avoidEmpty Payslip.Bonus.Description}}</td>
+            </tr>
+            <tr>
+              <td class="column1">Phụ cấp dự án/Project Allowance</td>
+              <td class="column2">{{avoidEmpty Payslip.Salary_Adjustment}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Các khoản khác (thêm/trừ)/Others Expense
+                (Add/Deduct)</td>
+              <td class="column2">{{avoidEmpty
+                  Payslip.Others_Expense.Value
+                }}</td>
+              <td class="column3">{{avoidEmpty
+                  Payslip.Others_Expense.Description
+                }}</td>
+            </tr>
+            <tr>
+              <td class="column1">Bảo hiểm xã hội/Social 8%</td>
+              <td class="column2">{{avoidEmpty Payslip.Social}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Bảo hiểm y tế/Health 1.5%</td>
+              <td class="column2">{{avoidEmpty Payslip.Health}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Bảo hiểm thất nghiệp/Unemployment 1%</td>
+              <td class="column2">{{avoidEmpty Payslip.Unemployment}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Giảm trừ bản thân/Self Reduce</td>
+              <td class="column2">{{avoidEmpty Payslip.Self_Reduce}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Số người phụ thuộc/No of Dependent</td>
+              <td class="column2">{{avoidEmpty Payslip.No_Of_Dependent}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Giảm trừ gia cảnh/Family Reduce</td>
+              <td class="column2">{{avoidEmpty Payslip.Family_Reduce}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Khấu trừ thuế/Tax</td>
+              <td class="column2">{{avoidEmpty Payslip.Tax}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Khoản ứng trước/Advance</td>
+              <td class="column2">{{avoidEmpty Payslip.Advance}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr>
+              <td class="column1">Đoàn phí/UnionFee</td>
+              <td class="column2">{{avoidEmpty Payslip.Union_Fee}}</td>
+              <td class="column3">-</td>
+            </tr>
+            <tr class="net">
+              <td class="column1">Thực nhận/Net</td>
+              <td class="column2">{{avoidEmpty Payslip.Net}}</td>
+              <td class="column3">-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
