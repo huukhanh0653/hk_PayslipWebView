@@ -8,13 +8,13 @@ passport.serializeUser((user, next) => next(null, user))
 passport.deserializeUser(async function (user, done) {
   try {
     if (user.type === 'local') {
-      const userLogin = await User.findOne({ Email: user.email });
+      const userLogin = await User.findOne({ Email: user.Email });
       if (userLogin) {
         return done(null, userLogin);
       }
       return done('invalid');
     } else {
-      const userLogin = await User.findOne({ Admin: user.Admin });
+      const userLogin = await User.findOne({ Emp_Code: user.Emp_Code });
       if (userLogin) {
         return done(null, userLogin);
       }

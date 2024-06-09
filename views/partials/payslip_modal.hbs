@@ -1,0 +1,27 @@
+<div class="modal fade position-relative" id="payslip-modal">
+    <div class="modal-dialog position-absolute top-50 start-50 translate-middle">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title login100-form-title">Upload Payslip Table <i>(.xlsx, .xls)</i></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-container" id="uploadContainer">
+                    <label for="fileInput">
+                        <i class="fa fa-cloud-upload"></i> Custom Upload
+                        <input type="file" id="fileInput" multiple accept=".xlsx, .xls">
+                        <div class="file-list" id="fileList">
+                            <p class="justify-content-center">
+                                <b>Click</b> to browse or <b>drag and drop</b> files here!
+                            </p>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="submit-btn" class="btn btn-success">Submit</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

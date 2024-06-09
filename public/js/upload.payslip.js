@@ -1,4 +1,7 @@
+var formData = new FormData();
+
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+
 const uploadContainer = document.getElementById('uploadContainer');
 
 // Drag and drop events
@@ -30,20 +33,33 @@ function handleFileSelect(event) {
     }
 
     const fileList = document.getElementById('fileList');
-    fileList.innerHTML = ''; // Clear previous file list
+    fileList.innerHTML = `<p class="justify-content-center">
+                          <b>Click</b> to browse or <b>drag and drop</b> files here!\n
+                          </p>`; // Clear previous file list
 
-    const formData = new FormData();
+    formData = new FormData();
+
     Array.from(files).forEach(file => {
         formData.append('files', file);
+        const listItem = document.createElement('div');
+        listItem.classList.add('text-success')
+        listItem.textContent = file.name;
+        fileList.appendChild(listItem);
     });
 
-    fetch('/admin/upload/payslip', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-        .then(response => response.json())
-        .catch(error => console.error('Error:', error));
 }
+
+document.getElementById('submit-btn').addEventListener('click', async (e) => {
+    e.preventDefault();
+    console.log(formData.getAll('files'))
+    await fetch('/admin/upload/payslip', {
+        method: 'POST',
+        body: formData
+    })
+        .then(async (response) => {
+            let resp = await response.json()
+            alert(resp.message)
+            console.log(resp)
+        })
+        .catch(error => console.error('Error:', error));
+})

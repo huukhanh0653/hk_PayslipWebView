@@ -1,0 +1,36 @@
+<div class="limiter container-fluid">
+    <div class="container position-absolute top-50 start-50 translate-middle md justify-content-center align-items-center">
+        <div class="row justify-content-center row">
+            <button type="button" id="payslip-button"
+                    class="col-10 col-sm-10 col-md-6 col-lg-5 col-xl-6 btn-dark btn-lg txt1 shadow"
+                    data-bs-toggle="modal" data-bs-target="#payslip-modal">
+                Upload Payslip Data
+            </button>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" id="register-button"
+                    class="col-10 col-sm-10 col-md-6 col-lg-5 col-xl-6 btn-dark btn-lg txt1 shadow"
+                    data-bs-toggle="modal" data-bs-target="#register-modal">
+                Create An Account
+            </button>
+        </div>
+
+<!--        <div class="row justify-content-center">-->
+<!--            <button type="button" id="update-button"-->
+<!--                    class="col-10 col-sm-10 col-md-6 col-lg-5 col-xl-6 btn-dark btn-lg txt1 shadow"-->
+<!--                    data-bs-toggle="modal" data-bs-target="#updateAccount-modal">-->
+<!--                Update An Account-->
+<!--            </button>-->
+<!--        </div>-->
+        <div class="row justify-content-center">
+            <button type="button"
+                    class="col-10 col-sm-10 col-md-6 col-lg-5 col-xl-6 btn-dark btn-lg txt1 shadow "
+                    data-bs-toggle="modal" data-bs-target="#clearData-modal">
+                Clear Payslip Data
+            </button>
+        </div>
+    </div>
+</div>
+
+{{> register_modal}}
+{{> payslip_modal}}

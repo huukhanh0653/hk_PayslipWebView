@@ -26,7 +26,7 @@ const keyMap = {
     "Self Reduce": "Self_Reduce",
     "No of Dependent": "No_Of_Dependent",
     'Family Reduce': "Family_Reduce",
-
+    UnionFee: "Union_Fee",
     //! for User JSON
     'Employee Code':"Emp_Code",
     "Passkey": "Password"
@@ -43,6 +43,7 @@ function changeKeys(obj, keyMap) {
     }
     return newObj;
 }
+
 function fixData(data) {
     let newData = data;
 

@@ -1,3 +1,5 @@
+@import "./upload.css";
+
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -25,8 +27,6 @@
   [ RESTYLE TAG ]*/
 
 * {
-    margin: 0px;
-    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -40,7 +40,6 @@ html {
     background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
     background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
-
 /*---------------------------------------------*/
 a {
     font-family: Poppins-Regular;
@@ -104,67 +103,67 @@ input:focus {
 }
 
 input:focus::-webkit-input-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 input:focus:-moz-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 input:focus::-moz-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 input:focus:-ms-input-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 textarea:focus::-webkit-input-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 textarea:focus:-moz-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 textarea:focus::-moz-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 textarea:focus:-ms-input-placeholder {
-    color: transparent;
+    color: transparent !important;
 }
 
 input::-webkit-input-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 input:-moz-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 input::-moz-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 input:-ms-input-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 textarea::-webkit-input-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 textarea:-moz-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 textarea::-moz-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 textarea:-ms-input-placeholder {
-    color: #999999;
+    color: #999999 !important;
 }
 
 /*---------------------------------------------*/
@@ -204,7 +203,6 @@ iframe {
 
 .limiter {
     width: 100%;
-    margin: 0 auto;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -214,36 +212,19 @@ iframe {
 .row{
     margin: 3%;
 }
+.modal-dialog{
+    background-color: white !important;
+    border-radius: 15px !important;
+}
 
-/* .container-login100 {
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    padding: 25% 25%;
-} */
+.modal-content{
+    border-bottom: none !important;
+    border-radius: 15px !important;
+}
 
-/* .wrap-login100 {
-    width: 100%;
-    background: #fff;
-    border-radius: 10%;
-    overflow: hidden;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 25% 25%;
-} */
+.modal-body{
+    border: none !important;
+}
 
 @-webkit-keyframes anim-shadow {
     to {
@@ -259,9 +240,12 @@ iframe {
     }
 }
 
-.symbol-input100 {
-    font-size: 15px;
+.wrap-input100 {
+    margin-bottom: 10px;
+}
 
+.symbol-input100 {
+    /*font-size: 15px;*/
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -277,109 +261,31 @@ iframe {
     padding-left: 35px;
     pointer-events: none;
     color: #666666;
-
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
 
-.input100:focus+.focus-input100+.symbol-input100 {
+input:focus+.focus-input100+.symbol-input100 {
     color: #57b846;
     padding-left: 28px;
 }
 
-/*------------------------------------------------------------------
-  [ Button ]*/
-.container-login100-form-btn {
-    width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-top: 20px;
-}
-
-.login100-form-btn {
-    font-family: Montserrat-Bold;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #fff;
-    text-transform: uppercase;
-
-    width: 100%;
-    height: 50px;
-    border-radius: 25px;
-    background: #57b846;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 25px;
-
+.btn{
+    font-family: Montserrat-Bold, serif !important;
+    border-radius: 25px !important;
+    text-transform: uppercase !important;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+    border: none !important;
 }
-
-.login100-form-btn:hover {
-    background: #333333;
-}
-
-
-
-/*------------------------------------------------------------------
-  [ Responsive ]*/
-
-
-
-@media (max-width: 992px) {
-    .wrap-login100 {
-        padding: 177px 90px 33px 85px;
-    }
-
-    .login100-pic {
-        width: 35%;
-    }
-
-    .login100-form {
-        width: 50%;
-    }
-}
-
-@media (max-width: 768px) {
-    .wrap-login100 {
-        padding: 100px 80px 33px 80px;
-    }
-
-    .login100-pic {
-        display: none;
-    }
-
-    .login100-form {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {
-    .wrap-login100 {
-        padding: 100px 15px 33px 15px;
-    }
-}
-
-
-/*------------------------------------------------------------------
-  [ Alert validate ]*/
 
 .validate-input {
     position: relative;
+    background-color: white;
 }
 
 .alert-validate::before {
@@ -415,6 +321,7 @@ iframe {
 }
 
 .alert-validate::after {
+    z-index: 9999;
     content: "\f06a";
     font-family: FontAwesome;
     display: block;
@@ -435,9 +342,28 @@ iframe {
     opacity: 1;
 }
 
-@media (max-width: 992px) {
-    .alert-validate::before {
-        visibility: visible;
-        opacity: 1;
-    }
+.focus-input100 {
+    display: block;
+    position: absolute;
+    border-radius: 25px;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 0px 0px;
+    color: rgba(87,184,70, 0.8);
+}
+
+.input100 {
+    font-family: Poppins-Medium;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
 }
