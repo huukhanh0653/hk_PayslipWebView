@@ -1,6 +1,9 @@
 var formData = new FormData();
+var date = Date.now();
+
 
 document.getElementById('fileInput').addEventListener('change', handleFileSelect);
+document.getElementById('date-picker').addEventListener('change', handleDateTime);
 
 const uploadContainer = document.getElementById('uploadContainer');
 
@@ -24,13 +27,15 @@ uploadContainer.addEventListener('drop', (e) => {
     handleFileSelect(e);
 });
 
+function handleDateTime(event) {
+    date = event.target.value;
+    console.log(event.target.value)
+}
+
 function handleFileSelect(event) {
     let files;
-    if (event.type === 'drop') {
-        files = event.dataTransfer.files;
-    } else {
-        files = event.target.files;
-    }
+    if (event.type === 'drop') files = event.dataTransfer.files;
+    else files = event.target.files;
 
     const fileList = document.getElementById('fileList');
     fileList.innerHTML = `<p class="justify-content-center">
@@ -51,10 +56,10 @@ function handleFileSelect(event) {
 
 document.getElementById('submit-btn').addEventListener('click', async (e) => {
     e.preventDefault();
-    console.log(formData.getAll('files'))
+    formData.set('date', date);
     await fetch('/admin/upload/payslip', {
         method: 'POST',
-        body: formData
+        body: formData,
     })
         .then(async (response) => {
             let resp = await response.json()

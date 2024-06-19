@@ -3,7 +3,7 @@ const Payslip = require("../models/Payslip");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const { isAdmin } = require("../middleware/auth");
-const { keyMap, changeKeys, fixData } = require("../utils/utils");
+const { keyMap, changeKeys, fixData, isValidData } = require("../utils/utils");
 const multer = require('multer');
 const XLSX = require('xlsx');
 const { compile } = require("../config/handlebars");
@@ -43,37 +43,26 @@ router.get("/", isAdmin, function (req, res, next) {
 
 // });
 
-// router.post('/upload/payslip', isAdmin, upload.array('files'), async (req, res, next) => {
-//     try {
-//         const files = req.files;
-//         console.log(req.files);
-//         console.log(req.body);
-//         // for (file in files) {
-//         //     let workbook = XLSX.read(file.buffer, {type: 'buffer'});
-//         //     let sheet = workbook.Sheets[workbook.SheetNames[0]];
-//         //     let jsonData = XLSX.utils.sheet_to_json(sheet);
-//         //     jsonData = jsonData.map(obj => changeKeys(obj, keyMap))
-//         //     jsonData = jsonData.map(obj => fixData(obj, keyMap))
-//         //     const addNewData = await Payslip.create(jsonData);
-//         // }
-//     } catch (err) {
-//         next(err);
-//     }
-//     res.status(200).json({message: "Data uploaded successfully!"})
-// });
-
 router.post('/upload/payslip', isAdmin, async (req, res, next) => {
     upload(req, res, (err) => {
         try {
+            const date = req.body.date;
             const files = req.files;
             files.map(file => {
-                console.log(file)
                 const workbook = XLSX.read(file.buffer, { type: 'buffer' });
-                let sheet = workbook.Sheets[workbook.SheetNames[0]];
-                let jsonData = XLSX.utils.sheet_to_json(sheet);
-                jsonData = jsonData.map(obj => changeKeys(obj, keyMap))
-                jsonData = jsonData.map(obj => fixData(obj, keyMap))
-                const addNewData = Payslip.create(jsonData);
+                var totalJSON = []
+                workbook.SheetNames.forEach(sheetName => {
+                    let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName]);            
+                    sheet.map(obj => {
+                        if (isValidData(obj)) {
+                            let converted = changeKeys(obj, keyMap);
+                            converted.Upload_Date = (new Date(date));
+                            converted = fixData(converted)
+                            totalJSON.push(converted);
+                        }
+                    });
+                });
+                const addNewData = Payslip.create(totalJSON);
             })
         } catch (err) {
             next(err);

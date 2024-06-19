@@ -1,5 +1,14 @@
 {
-    "files.associations": {
-        "ostream": "cpp"
+  "files.associations": {
+    "ostream": "cpp"
+  },
+
+  "workbench.colorCustomizations": {
+    "[Night Owl]": {
+      "titleBar.activeBackground": "#2A4443",
+      "titleBar.activeForeground": "#ffffff"
     }
+  },
+
+  "window.titleBarStyle": "custom"
 }

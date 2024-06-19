@@ -44,6 +44,17 @@ input[type="file"] {
     display: none;
 }
 
-.custom-file-upload {
-
+#date-picker{
+    text-align: center;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: Montserrat-Light;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    background: #e6e6e6;
+    height: auto;
+    border-radius: 25px;
+    align-self: flex-start !important;
 }

@@ -255,6 +255,11 @@ tbody tr:hover {
     text-align: left !important;
 }
 
+.dropdown-menu {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
 @media screen and (max-width:992px) {
     table {
         display: block

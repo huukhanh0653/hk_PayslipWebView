@@ -8,7 +8,6 @@ const app = require('../app.js');
 const debug = require('debug')('backend:server');
 const http = require('http');
 
-console.log(__dirname)
 
 /**
  * Get port from environment and store in Express.

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const findOrCreate = require("mongoose-findorcreate");
 
-UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
     {
         Emp_Code: { type: String, require: true, unique: true },
         Email: { type: String, require: true, unique: true },

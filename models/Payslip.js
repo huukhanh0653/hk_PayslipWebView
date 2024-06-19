@@ -32,6 +32,7 @@ const PayslipSchema = new mongoose.Schema(
         Advance: { type: Number },
         Union_Fee: { type: Number },
         Net: { type: Number },
+        Upload_Date: {type: Date},
     },
     { timestamps: true }
 )

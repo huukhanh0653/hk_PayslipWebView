@@ -14,7 +14,6 @@ function loadHelpers(helpersDir) {
 function loadPartials(partialsDir) {
     fs.readdirSync(partialsDir).forEach(filename => {
         const partialName = path.basename(filename, '.hbs');
-        console.log(partialName);
         const partialTemplate = fs.readFileSync(path.join(partialsDir, filename), 'utf8');
         Handlebars.registerPartial(partialName, partialTemplate);
     });
@@ -22,9 +21,10 @@ function loadPartials(partialsDir) {
 
 // Function to compile a Handlebars template with a layout
 function compile(view, options) {
-    const layoutPath = path.join('views/layouts', options.layout ? options.layout : 'layouts/login.hbs');
+    const layoutPath = path.join(__dirname,'../views/layouts/', options.layout ? options.layout : 'login.hbs');
     const layoutSource = fs.readFileSync(layoutPath, 'utf8');
-    const templateSource = fs.readFileSync(path.join('views', view), 'utf8');
+    const templatePath = path.join(__dirname,'../views/',view)
+    const templateSource = fs.readFileSync(templatePath, 'utf8');
 
     const layout = Handlebars.compile(layoutSource);
     const template = Handlebars.compile(templateSource);
@@ -35,8 +35,8 @@ function compile(view, options) {
 
 // Load helpers and partials
 function initializeHandlebars() {
-    const helpersDir = 'config/helpers.js';
-    const partialsDir = 'views/partials';
+    const helpersDir = path.join(__dirname,'helpers.js');
+    const partialsDir = path.join(__dirname,'../views/partials')
 
     loadHelpers(helpersDir);
     loadPartials(partialsDir);

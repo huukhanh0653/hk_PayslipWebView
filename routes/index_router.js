@@ -2,7 +2,6 @@ const router = require('express').Router();
 const passport = require('passport');
 const Payslip = require("../models/Payslip");
 const {isAuthenticated} = require("../middleware/auth")
-const User = require("../models/User");
 const {compile} = require("../config/handlebars");
 
 require("dotenv").config();
@@ -36,17 +35,31 @@ router.get('/logout', (req, res, next) => {
     });
 });
 
-// Find payslip
 router.get("/payslip/:Emp_Code", isAuthenticated, async (req, res) => {
     try {
-        console.log(req.user)
-        const payslip = await Payslip.findOne({"Emp_Code": req.user.Emp_Code}).lean();
-        console.log(payslip)
-        res.status(200).send(compile('pages/table.hbs', {layout: 'table.hbs', Payslip: payslip}));
+        const order = req.query.order || 0;
+        const payslip = await Payslip.find({"Emp_Code": req.params.Emp_Code }).lean();
+        payslip.sort((a, b) => b.Upload_Date - a.Upload_Date);
+
+        console.log(order)
+
+        res.status(200).send(compile('pages/table.hbs', {layout: 'table.hbs', Payslip: payslip[order], Payslips: payslip}));
     } catch (err) {
         res.status(500).json(err);
     }
 });
+
+// // Find payslip
+// router.get("/payslip/:Emp_Code", isAuthenticated, async (req, res) => {
+//     try {
+//         console.log(req.params)
+//         const payslip = await Payslip.find({"Emp_Code": req.user.Emp_Code, Upload_Date:{}}).lean();
+//         payslip.sort((a, b) => b.Upload_Date - a.Upload_Date);
+//         res.status(200).send(compile('pages/table.hbs', {layout: 'table.hbs', Payslip: payslip[0]}));
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+// });
 
 
 module.exports = router;

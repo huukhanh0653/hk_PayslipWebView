@@ -43,7 +43,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/index_router");
 const adminRouter = require("./routes/admin");
 
 app.use('/', indexRouter);

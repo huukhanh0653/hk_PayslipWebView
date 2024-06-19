@@ -23,6 +23,11 @@
     src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
+@font-face {
+    font-family: Montserrat-Light;
+    src: url('../fonts/montserrat/Montserrat-Light.ttf');
+}
+
 /*//////////////////////////////////////////////////////////////////
   [ RESTYLE TAG ]*/
 
@@ -366,4 +371,8 @@ input:focus+.focus-input100+.symbol-input100 {
     height: 50px;
     border-radius: 25px;
     padding: 0 30px 0 68px;
+}
+
+#date-label{
+    font-family: Montserrat-Bold, serif !important;
 }

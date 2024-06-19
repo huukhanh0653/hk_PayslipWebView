@@ -41,6 +41,7 @@ function changeKeys(obj, keyMap) {
             newObj[key] = obj[key];
         }
     }
+    if (newObj.Emp_Code === undefined) return null; 
     return newObj;
 }
 
@@ -48,17 +49,17 @@ function fixData(data) {
     let newData = data;
 
     newData.Incentive = {
-        "Value": data.Incentive,
+        "Value": Math.floor(data.Incentive),
         "Description": data.Description
     }
 
     newData.Bonus = {
-        "Value": data.Bonus,
+        "Value": Math.floor(data.Bonus),
         "Description": data.Description_1
     }
 
     newData.Others_Expense = {
-        "Value": data.Others_Expense,
+        "Value": Math.floor(data.Others_Expense),
         "Description": data['Description_2']
     }
 
@@ -68,4 +69,21 @@ function fixData(data) {
     return newData;
 }
 
-module.exports = {keyMap, fixData, changeKeys};
+function isValidData(objData) {
+
+    const Keys = {
+        "Emp.\r\nCode": "Emp_Code",
+        "Full name": "Full_Name",
+        "Basic Salary": "Basic_Salary",
+    }
+
+    if (objData === undefined || objData === null) return false;
+
+    for (let key in Keys) {
+        if (!objData[key] && !objData[Keys[key]]) return false;
+    }
+
+    return true;
+}
+
+module.exports = {keyMap, fixData, changeKeys, isValidData};

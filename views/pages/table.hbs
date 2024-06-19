@@ -1,6 +1,19 @@
-
 <div class="limiter row">
-  <div class="title">Bảng lương - {{reformat Payslip.createAt}}</div>
+  <div class="title">Bảng lương - {{reformat Payslip.Upload_Date}}
+    <div class="dropdown d-inline">
+      <button
+        class="btn-sm bg-white dropdown-toggle d-inline"
+        type="button"
+        data-toggle="dropdown"
+      >
+        <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        {{#each Payslips}}
+          <li><a class="dropdown-item" href="/payslip/{{this.Emp_Code}}/?order={{@index}}">{{reformat this.Upload_Date}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
   <div class="container-table100">
     <div class="wrap-table100">
       <div class="table100">
